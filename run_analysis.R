@@ -1,11 +1,11 @@
 #Read in necessary files
-X_test<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/test/X_test.txt")
-Y_test<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/test/Y_test.txt")
-Y_train<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/train/Y_train.txt")
-X_train<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/train/X_train.txt")
-features<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/features.txt")
-testSubjects<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/test/subject_test.txt")
-trainSubjects<-read.table("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/train/subject_train.txt")
+X_test<-read.table("UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt")
+Y_test<-read.table("UCI HAR Dataset/UCI HAR Dataset/test/Y_test.txt")
+Y_train<-read.table("UCI HAR Dataset/UCI HAR Dataset/train/Y_train.txt")
+X_train<-read.table("UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt")
+features<-read.table("UCI HAR Dataset/UCI HAR Dataset/features.txt")
+testSubjects<-read.table("UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt")
+trainSubjects<-read.table("UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt")
 
 #Define 2 new levels in <features> and add them to the start of the data.frame
 levels(features[,2])<-c(levels(features[,2]),"Subject","Activity")
@@ -32,14 +32,14 @@ dataSummary<-allData[,grepl("mean|std|Activity|Subject",names(allData))]
 ##This creates a data.frame with a variable for the subject, one for the activity and each of the variables that relate to a mean or std
 ##So up to here I've done up to step 3. Next step is to define sensible variable names for each of the measurements.
 
+#The below uses a local .csv containing the codebook
 #varLabels<-as.data.frame(colnames(dataSummary))
 #write.csv(varLabels,"c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/codebook.csv")
+#codeBook<-read.csv("codebook.csv",header=TRUE)
+#newVarNames<-as.vector(codeBook[,"newNames"])
+#colnames(dataSummary)<-newVarNames
 
-codeBook<-read.csv("c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/codebook.csv",header=TRUE)
-newVarNames<-as.vector(codeBook[,"newNames"])
-colnames(dataSummary)<-newVarNames
-
-#Or this for renaming with direct reference
+#This does the same thing for renaming with direct reference and is what I've used for the assignment
 newVarNames1<-c("Subject","Activity","BodyAcceleration_Xaxis_Mean","BodyAcceleration_Yaxis_Mean",
                 "BodyAcceleration_Zaxis_Mean","BodyAcceleration_Xaxis_St.Dev","BodyAcceleration_Yaxis_Std.Dev",
                 "BodyAcceleration_Zaxis_Std.Dev","GravityAcceleration_Xaxis_Mean","GravityAcceleration_Yaxis_Mean",
@@ -72,14 +72,15 @@ newVarNames1<-c("Subject","Activity","BodyAcceleration_Xaxis_Mean","BodyAccelera
                 "fft_BodyGyrocopeMagnitude_Std","fft_BodyGyroscopeMagnitude_MeanFrequency",
                 "fft_BodyGyroscopeJerkMagnitude_Mean","fft_BodyGyrocopeJerkMagnitude_Std",
                 "fft_BodyGyroscopeJerkMagnitude_MeanFrequency")
-dataSummary1<-dataSummary
-colnames(dataSummary1)<-newVarNames1
+colnames(dataSummary)<-newVarNames1
 
-#
+#Now summarising the 1st tidy dataset by subject and activity
+
+#Define the levels of the factors we are interested in
 subjects<-unique(dataSummary$Subject)
 activity<-levels(dataSummary$Activity)
-measurement<-newVarNames[-c(1,2)]
 
+#and calculate the mean for each combination and rbind to an empty data.frame
 nextSummary<-data.frame()
 
 for (i in subjects) {
@@ -90,6 +91,8 @@ for (i in subjects) {
     nextSummary<-rbind(nextSummary,smSummary)
   }
 }
+
+#finally clean up the factors and the variable names
 row.names(nextSummary)<-NULL
 nextSummary<-cbind(rep(subjects,each=6),rep(activity,times=30),nextSummary)
 colnames(nextSummary)[c(1,2)]<-c("Subject","Activity")
