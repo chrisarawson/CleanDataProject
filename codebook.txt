@@ -1,4 +1,8 @@
-Data Description - nextSummary
+Data Description - dataSummary and summaryBySubject
+
+ROWS
+	In "dataSummary" produced by run_analysis.R each row represents a single measurement instance
+	In "summaryBySubject" produced by run_analysis.R each row is the mean of all measurements for each acitivy by each subject 
 
 FACTORS
 	"Subject"
