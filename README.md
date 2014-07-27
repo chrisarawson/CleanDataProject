@@ -5,7 +5,7 @@ Christopher Rawson
 Curtin University
 Western Australia
 c.rawson@curtin.edu.au
-========================================
+
 
 This Repository contains the project assignment for the Getting and Cleaning Data course run through Coursera by Johns Hopkins University. Thanks to Jeff and the TAs (particularly David Hood) for the course and the feedback through the discussion boards.
 
@@ -25,8 +25,8 @@ The first dataset produced by run_analysis.R in this repo is called ```dataSumma
 5. Adds factor and variable names from ```features```
 6. Re-lables the levels of the factor column "Activity" as per the designation in activity_labels.txt (but doesn't read that file).
 7. Subsets ```allData``` using regular expression ```grepl``` into ```dataSummary```
-8. Re-names the variables in ```dataSummary``` with readable names
-..* Note that I first did this using a local file ("codebook.csv") but wasn't sure how this would work with Github so re-wrote defining ```newVarNames``` as a silly long vector with each of the new variable names
+8. Re-names the variables in ```dataSummary``` with readable names.
+  * Note that I first did this using a local file ("codebook.csv") but wasn't sure how this would work with Github so re-wrote defining ```newVarNames``` as a silly long vector with each of the new variable names
 
 So the dataset ```dataSummary``` is a tidy dataset - 
 * There are no missing data
@@ -72,21 +72,21 @@ Files Required:
 
 run_analysis.R requires the following files in the working directory (for me this was the result of unzipping to the working directory):
 1. "UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt"
-..* Contains the variable data for the test dataset
+  * Contains the variable data for the test dataset
 2. "UCI HAR Dataset/UCI HAR Dataset/test/Y_test.txt"
-..* Contains the activity descgnation for the test dataset
+  * Contains the activity descgnation for the test dataset
 3. "UCI HAR Dataset/UCI HAR Dataset/train/Y_train.txt"
-..* Contains the activity designation for the training dataset
+  * Contains the activity designation for the training dataset
 4. "UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt"
-..* Contains the variable data for the training dataset
+  * Contains the variable data for the training dataset
 5. "UCI HAR Dataset/UCI HAR Dataset/features.txt"
-..* Contains the names for each variable
+  * Contains the names for each variable
 6. "UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt"
-..* Contains the subject designation for each row of the test dataset
+  * Contains the subject designation for each row of the test dataset
 7. "UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt"
-..* Contains the subject designation for each row of the test dataset
+  * Contains the subject designation for each row of the test dataset
 
 
 
-Author: Christopher Rawson
-========================================
+_Author: Christopher Rawson_
+
