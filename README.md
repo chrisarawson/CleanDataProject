@@ -1,9 +1,9 @@
 Getting and Cleaning Data Course Project
 ========================================
 
-Christopher Rawson
-Curtin University
-Western Australia
+Christopher Rawson  
+Curtin University  
+Western Australia  
 c.rawson@curtin.edu.au
 
 
@@ -32,7 +32,7 @@ So the dataset ```dataSummary``` is a tidy dataset
 
 * There are no missing data
 * Each column has a unique variable name
-* EAch variable name is readable with reference to "codebook.txt"
+* Each variable name is readable with reference to "codebook.txt"
 * Each column is a variable containing one type of data
 * Each individual observation is represented on a single row 
 
@@ -71,7 +71,7 @@ Files Required:
 run_analysis.R requires the following files in the working directory (for me this was the result of unzipping to the working directory)
 
 Filepath from working directory | Contents
-
+--------------------------------|-----------
 "UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt"| Variable data for the test dataset
 "UCI HAR Dataset/UCI HAR Dataset/test/Y_test.txt"| Activity descgnation for the test dataset
 "UCI HAR Dataset/UCI HAR Dataset/train/Y_train.txt"|Activity designation for the training dataset
