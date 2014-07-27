@@ -28,7 +28,8 @@ The first dataset produced by run_analysis.R in this repo is called ```dataSumma
 8. Re-names the variables in ```dataSummary``` with readable names.
   * Note that I first did this using a local file ("codebook.csv") but wasn't sure how this would work with Github so re-wrote defining ```newVarNames``` as a silly long vector with each of the new variable names
 
-So the dataset ```dataSummary``` is a tidy dataset - 
+So the dataset ```dataSummary``` is a tidy dataset 
+
 * There are no missing data
 * Each column has a unique variable name
 * EAch variable name is readable with reference to "codebook.txt"
@@ -57,34 +58,27 @@ So the dataset ```summaryBySubject``` is a tidy dataset -
 Included files:
 ========================================
 
-README.md
-	Information for the repository
-
-run_analysis.R 
-	An R script for returning a tidy dataset for the Samsung data
-
-codebook.txt
-	Describes the factors and variables in the tidy dataset produced by run_analysis.R
+File     |Contents
+---------|-----------
+README.md |  Information for the repository
+run_analysis.R | An R script for returning a tidy dataset for the Samsung data
+codebook.txt | Describes the factors and variables in the tidy dataset produced by run_analysis.R
 
 
 Files Required:
 =======================================
 
-run_analysis.R requires the following files in the working directory (for me this was the result of unzipping to the working directory):
-1. "UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt"
-  * Contains the variable data for the test dataset
-2. "UCI HAR Dataset/UCI HAR Dataset/test/Y_test.txt"
-  * Contains the activity descgnation for the test dataset
-3. "UCI HAR Dataset/UCI HAR Dataset/train/Y_train.txt"
-  * Contains the activity designation for the training dataset
-4. "UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt"
-  * Contains the variable data for the training dataset
-5. "UCI HAR Dataset/UCI HAR Dataset/features.txt"
-  * Contains the names for each variable
-6. "UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt"
-  * Contains the subject designation for each row of the test dataset
-7. "UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt"
-  * Contains the subject designation for each row of the test dataset
+run_analysis.R requires the following files in the working directory (for me this was the result of unzipping to the working directory)
+
+Filepath from working directory | Contents
+
+"UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt"| Variable data for the test dataset
+"UCI HAR Dataset/UCI HAR Dataset/test/Y_test.txt"| Activity descgnation for the test dataset
+"UCI HAR Dataset/UCI HAR Dataset/train/Y_train.txt"|Activity designation for the training dataset
+"UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt"|Variable data for the training dataset
+"UCI HAR Dataset/UCI HAR Dataset/features.txt"|Names for each variable
+"UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt"| Subject designation for each row of the test dataset
+"UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt"| Subject designation for each row of the training dataset
 
 
 
