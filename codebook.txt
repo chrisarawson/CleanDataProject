@@ -1,0 +1,90 @@
+Data Description - nextSummary
+
+FACTORS
+	"Subject"
+		Subjects of the study identified by a unique number (1:30). 
+
+	"Activity"
+		The activity performed for at each datapoint. One of "Walking", Walking_Upstairs", "Walking_Downstairs","Sitting","Standing" or "Laying"
+
+VARIABLES 
+Notes	1. Where "XYZaxis" is included the measurement is represented by 3 axial measurements in the dataset
+	2. The "fft" prefix denotes that the variable is a fast fourier transform
+	3. All signals are reported in the range -1 < x < 1
+	4. All variables are reported with mean and standard deviation in separate columns
+	5. Fast fourier transformed data are additionally presented as mean frequency
+
+	"BodyAcceleration_XYZaxis"
+		3-axial filtered body acceleration signal
+
+	"GravityAcceleration_XYZaxis"
+		3-axial filtered gravity acceleartion signal
+
+	"BodyAccelerationJerk_XYZaxis"
+		Body Jerk signal derived from linear acceleration and angular velocity
+
+	"BodyGyroscope_XYZaxis"
+ 	     	3-axial raw Gyroscope signals
+
+	"BodyGyroscopeJerk_XYZaxis"
+		Gyroscope Jerk signal derived from linear acceleration and angular velocity
+
+	"BodyAccelerationMagnitude"
+		Magnitude of Body Acceleration (Euclidean norm)
+
+	"BodyAccelerationJerkMagnitude"
+		Magnitude of Body Acceleration Jerk (Euclidean norm)
+
+	"BodyGyroscopeMagnitude"
+		Magnitude of Body Gyroscope (Euclidean norm)
+
+
+	"BodyGyroscopeJerkMagnitude"
+		Magnitude of Body Gyroscope Jerk (Euclidean norm)
+
+
+
+Variable Names In Raw Dataset		Variable Names in Tidy Dataset
+-					Subject
+-					Activity
+tBodyAcc-mean()-XYZ			BodyAcceleration_XYZaxis_Mean
+tBodyAcc-std()-XYZ			BodyAcceleration_XYZaxis_St.Dev
+tGravityAcc-mean()-XYZ			GravityAcceleration_XYZaxis_Mean
+tGravityAcc-std()-XYZ			GravityAcceleration_XYZaxis_St.Dev
+tBodyAccJerk-mean()-XYZ			BodyAccelerationJerk_XYZaxis_Mean
+tBodyAccJerk-std()-XYZ			BodyAccelerationJerk_XYZaxis_St.Dev
+tBodyGyro-mean()-XYZ			BodyGyroscope_XYZaxis_Mean
+tBodyGyro-std()-XYZ			BodyGyroscope_XYZaxis_St.Dev
+tBodyGyroJerk-mean()-XYZ		BodyGyroscopeJerk_XYZaxis_Mean
+tBodyGyroJerk-std()-XYZ			BodyGyroscopeJerk_XYZaxis_St.Dev
+tBodyAccMag-mean()			BodyAccelerationMagnitude_Mean
+tBodyAccMag-std()			BodyAccelerationMagnitude_Std
+tGravityAccMag-mean()			GravityAccelerationMagnitude_Mean
+tGravityAccMag-std()			GravityAccelerationMagnitude_Std
+tBodyAccJerkMag-mean()			BodyAccelerationJerkMagnitude_Mean
+tBodyAccJerkMag-std()			BodyAccelerationJerkMagnitude_Std
+tBodyGyroMag-mean()			BodyGyroscopeMagnitude_Mean
+tBodyGyroMag-std()			BodyGyrocopeMagnitude_Std
+tBodyGyroJerkMag-mean()			BodyGyroscopeJerkMagnitude_Mean
+tBodyGyroJerkMag-std()			BodyGyrocopeJerkMagnitude_Std
+fBodyAcc-mean()-XYZ			fft_BodyAcceleration_XYZaxis_Mean
+fBodyAcc-std()-XYZ			fft_BodyAcceleration_XYZaxis_St.Dev
+fBodyAcc-meanFreq()-XYZ			fft_BodyAcceleration_XYZaxis_MeanFrequency
+fBodyAccJerk-mean()-XYZ			fft_BodyAccelerationJerk_XYZaxis_Mean
+fBodyAccJerk-std()-XYZ			fft_BodyAccelerationJerk_XYZaxis_St.Dev
+fBodyAccJerk-meanFreq()-XYZ		fft_BodyAccelerationJerk_XYZaxis_MeanFrequency
+fBodyGyro-mean()-XYZ			fft_BodyGyroscope_XYZaxis_Mean
+fBodyGyro-std()-XYZ			fft_BodyGyroscope_XYZaxis_St.Dev
+fBodyGyro-meanFreq()-XYZ		fft_BodyGyroscope_XYZaxis_MeanFrequency
+fBodyAccMag-mean()			fft_BodyAccelerationMagnitude_Mean
+fBodyAccMag-std()			fft_BodyAccelerationMagnitude_Std
+fBodyAccMag-meanFreq()			fft_BodyAccelerationMagnitude_MeanFrequency
+fBodyBodyAccJerkMag-mean()		fft_BodyAccelerationJerkMagnitude_Mean
+fBodyBodyAccJerkMag-std()		fft_BodyAccelerationJerkMagnitude_Std
+fBodyBodyAccJerkMag-meanFreq()		fft_BodyAccelerationJerkMagnitude_MeanFrequency
+fBodyBodyGyroMag-mean()			fft_BodyGyroscopeMagnitude_Mean
+fBodyBodyGyroMag-std()			fft_BodyGyrocopeMagnitude_Std
+fBodyBodyGyroMag-meanFreq()		fft_BodyGyroscopeMagnitude_MeanFrequency
+fBodyBodyGyroJerkMag-mean()		fft_BodyGyroscopeJerkMagnitude_Mean
+fBodyBodyGyroJerkMag-std()		fft_BodyGyrocopeJerkMagnitude_Std
+fBodyBodyGyroJerkMag-meanFreq()		fft_BodyGyroscopeJerkMagnitude_MeanFrequency

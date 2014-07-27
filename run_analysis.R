@@ -32,7 +32,7 @@ dataSummary<-allData[,grepl("mean|std|Activity|Subject",names(allData))]
 ##This creates a data.frame with a variable for the subject, one for the activity and each of the variables that relate to a mean or std
 ##So up to here I've done up to step 3. Next step is to define sensible variable names for each of the measurements.
 
-#The below uses a local .csv containing the codebook
+##The below uses a local .csv containing the codebook
 #varLabels<-as.data.frame(colnames(dataSummary))
 #write.csv(varLabels,"c:/Users/241003h/Documents/Documents/Rfiles/CleanDataCourse/Project/projectFiles/codebook.csv")
 #codeBook<-read.csv("codebook.csv",header=TRUE)
@@ -81,18 +81,18 @@ subjects<-unique(dataSummary$Subject)
 activity<-levels(dataSummary$Activity)
 
 #and calculate the mean for each combination and rbind to an empty data.frame
-nextSummary<-data.frame()
+summaryBySubject<-data.frame()
 
 for (i in subjects) {
   tmp<-dataSummary[dataSummary$Subject==i,]
   for (j in activity) {
     tmp1<-tmp[tmp$Activity==j,]
     smSummary<-lapply(tmp1[,3:81],mean)
-    nextSummary<-rbind(nextSummary,smSummary)
+    summaryBySubject<-rbind(summaryBySubject,smSummary)
   }
 }
 
 #finally clean up the factors and the variable names
-row.names(nextSummary)<-NULL
-nextSummary<-cbind(rep(subjects,each=6),rep(activity,times=30),nextSummary)
-colnames(nextSummary)[c(1,2)]<-c("Subject","Activity")
+row.names(summaryBySubject)<-NULL
+summaryBySubject<-cbind(rep(subjects,each=6),rep(activity,times=30),summaryBySubject)
+colnames(summaryBySubject)[c(1,2)]<-c("Subject","Activity")
